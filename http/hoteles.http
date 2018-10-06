@@ -1,0 +1,33 @@
+
+####Obtenet la lista de hoteles
+GET http://localhost:3000/hoteles
+
+#### Inserta un nuevo hotel
+POST http://localhost:3000/hoteles
+content-type: application/json
+
+{
+    "nombre": "Olimpo",
+    "direccion": "Centro CDE",
+    "latitud": 1231232,
+    "longitud": 1231232423
+}
+
+### Buscar hotel por Id
+GET http://localhost:3000/hoteles/1
+
+###Editar datos de un hotel
+PUT http://localhost:3000/hoteles/1
+content-type: application/json
+
+{
+    "nombre": "lOS ALPES",
+    "direccion": "Centro CDE",
+    "latitud": 1231232,
+    "longitud": 1231232423
+}
+
+
+###Eliminar un hotel
+ DELETE http://localhost:3000/hoteles/2
+

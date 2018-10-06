@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+//Importamos componentes de Bootstrap 3
+import {
+    Grid, 
+    Row, 
+    Col
+} from 'react-bootstrap';
+
+//Importamos los componentes necesarios para la navegacion
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+
+//Importamos nuestros componentes
+import Navegador from './componentes/Navegador';
+import Dashboard from './componentes/Dashboard';
+import FormHotel from './componentes/FormHotel';
+import TablaHoteles from './componentes/TablaHoteles';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return(
+           <Router>
+                <div>
+                    <Navegador />
+                    <Grid>
+                        <Row>
+                            <Col md={12}>
+                                <Route exact path='/' component={ Dashboard }/>
+                                <Route path='/hoteles/lista' component={ TablaHoteles }/>
+                                <Route path='/hoteles/nuevo' component={ FormHotel }/>
+                                <Route path='/hoteles/editar/:id' component={FormHotel} />
+                            </Col>
+                        </Row>
+                    </Grid>
+                </div>
+           </Router>
+        )
+    }
 }
-
 export default App;
